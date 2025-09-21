@@ -53,8 +53,8 @@ public class GUI extends JFrame {
     private void confirmHabit() {
         String selected = habitList.getSelectedValue();
         if (selected != null) {
-            String name = selected.split(",")[0].replace("Habit [name=", "").trim();
-            tracker.confirmHabit(name);
+            String name = selected.split("-")[0].replace("Habit [name=", "").trim();
+            tracker.checkHabit(name);
             refreshList();
         }
     }
@@ -62,7 +62,7 @@ public class GUI extends JFrame {
     private void resetHabit() {
         String selected = habitList.getSelectedValue();
         if (selected != null) {
-            String name = selected.split(",")[0].replace("Habit [name=", "").trim();
+            String name = selected.split("-")[0].replace("Habit [name=", "").trim();
             for (Habit h : tracker.habits) {
                 if (h.getName().equals(name)) {
                     h.reset();

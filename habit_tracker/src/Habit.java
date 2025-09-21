@@ -37,7 +37,7 @@ public class Habit {
             lastCheckedIn = today;
             System.out.println("confirmed progress for " +name+ "!");
         }else {
-            System.out.println("already checked in today for" +name+ "!");
+            System.out.println("already checked in today for " +name+ "!");
         }
     }
 

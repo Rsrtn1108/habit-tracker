@@ -10,14 +10,15 @@ public class Tracker {
         habits.add(new Habit(name));
     }
 
-    public void confirmHabit(String name) {
+    public void checkHabit(String name) {
         for (Habit habit : habits) {
             if (habit.getName().equals(name)) {
                 habit.checkIn();
+                System.out.println("checked in");
                 return;
             }
         }
-        System.out.println("Error: Habit not found" + name);
+        System.out.println("Error: Habit not found " + name);
     }
 
     public void listHabits(){
