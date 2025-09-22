@@ -8,6 +8,18 @@ public class GUI extends JFrame {
     private JList<String> habitList = new JList<>(habitListModel);
 
     public GUI() {
+        //load habits
+        tracker.loadHabits("habits.txt");
+
+        //save on close
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            @Override
+            public void windowClosing(java.awt.event.WindowEvent e) {
+                tracker.saveHabits("habits.txt");
+                System.exit(0);
+            }
+        });
+
         setTitle("Habit Tracker");
         setSize(400, 300);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);

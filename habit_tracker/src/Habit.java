@@ -30,6 +30,10 @@ public class Habit {
         name = newName;
     }
 
+    public void setLastCheckedIn(LocalDate lastCheckedIn) { this.lastCheckedIn = lastCheckedIn; }
+
+    public void setStartDate(LocalDate startDate) { this.startDate = startDate; }
+
     /**logic for habits**/
     public void checkIn(){ //checks in that habit is still being followed or avoided
         LocalDate today = LocalDate.now();
@@ -50,5 +54,10 @@ public class Habit {
     @Override
     public String toString() {
         return name+ "- Streak: " + getStreak();
+    }
+
+    //used for saving in a consistent format
+    public String toFileString(){
+        return name+ "|" +startDate+ "|" +lastCheckedIn;
     }
 }
